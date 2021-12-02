@@ -31,8 +31,8 @@ public class UsuarioControllerTest {
 
         UsuarioModel mockUsuarioModel = new UsuarioModel();
         mockUsuarioModel.setId((long) 1);
-        mockUsuarioModel.setName("Pepe");
-        mockUsuarioModel.setEmail("email@gmail.com");
+        mockUsuarioModel.setName("pepe");
+        mockUsuarioModel.setEmail("email@mail.com");
 
         Mockito.when(usuarioServiceMock.obtenerPorId((long) 1)).thenReturn(Optional.of(mockUsuarioModel));
 
@@ -40,9 +40,11 @@ public class UsuarioControllerTest {
 
     @Test
     void testObtenerUsuarioPorId() {
+             
         Optional<UsuarioModel> respuestaEntity;
-        respuestaEntity = usuarioController.obtenerUsuarioPorId((long) 1);
-        Assertions.assertEquals("Pepe", respuestaEntity.get().getName());
+        //respuestaEntity = usuarioController.obtenerUsuarioPorId((long) 1);
+        respuestaEntity = usuarioServiceMock.obtenerPorId((long)1);
+        Assertions.assertEquals("pepe", respuestaEntity.get().getName());
 
     }
 }
