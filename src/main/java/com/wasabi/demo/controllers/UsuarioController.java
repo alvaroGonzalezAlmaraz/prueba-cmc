@@ -1,12 +1,15 @@
 package com.wasabi.demo.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.wasabi.demo.models.UsuarioModel;
 import com.wasabi.demo.services.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,18 +26,21 @@ public class UsuarioController {
     UsuarioService usuarioService;
 
     @GetMapping()
-    public ArrayList<UsuarioModel> obtenerUsuarios() {
-        return usuarioService.obtenerUsuarios();
+    public ResponseEntity<List<UsuarioModel>> obtenerUsuarios() {
+        List<UsuarioModel> usuarioModels = usuarioService.obtenerUsuarios();
+        return new ResponseEntity<>(usuarioModels,HttpStatus.OK);
     }
 
     @PostMapping
-    public UsuarioModel guardarUsuario(@RequestBody UsuarioModel usuario) {
-        return this.usuarioService.guardarUsuario(usuario);
+    public ResponseEntity<UsuarioModel> guardarUsuario(@RequestBody UsuarioModel usuario) {
+        UsuarioModel usuarioModel = usuarioService.guardarUsuario(usuario);
+        return new ResponseEntity<>(usuarioModel, HttpStatus.CREATED);
     }
 
     @GetMapping(path = "/{id}")
-    public Optional<UsuarioModel> obtenerUsuarioPorId(@PathVariable("id") Long id) {
-        return this.usuarioService.obtenerPorId(id);
+    public ResponseEntity<Optional<UsuarioModel>> obtenerUsuarioPorId(@PathVariable("id") Long id) {
+        Optional <UsuarioModel> usuarioModelOptional = usuarioService.obtenerPorId(id);
+        return new ResponseEntity<>(usuarioModelOptional,HttpStatus.O);
     }
 
     @DeleteMapping(path = "/{id}")
