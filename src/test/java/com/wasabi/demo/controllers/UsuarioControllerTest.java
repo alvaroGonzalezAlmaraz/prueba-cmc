@@ -42,7 +42,6 @@ public class UsuarioControllerTest {
     void testObtenerUsuarioPorId() {
              
         Optional<UsuarioModel> respuestaEntity;
-        //respuestaEntity = usuarioController.obtenerUsuarioPorId((long) 1);
         respuestaEntity = usuarioServiceMock.obtenerPorId((long)1);
         Assertions.assertEquals("pepe", respuestaEntity.get().getName());
 
