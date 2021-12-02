@@ -1,0 +1,6 @@
+com\wasabi\demo\repositories\UsuarioRepository.class
+com\wasabi\demo\services\UsuarioService.class
+com\wasabi\demo\ServletInitializer.class
+com\wasabi\demo\WasabiRestApplication.class
+com\wasabi\demo\models\UsuarioModel.class
+com\wasabi\demo\controllers\UsuarioController.class

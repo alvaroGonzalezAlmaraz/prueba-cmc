@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-WasabiRestApplication<demo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.wasabi.demo.WasabiRestApplication",
+            "projectName": "demo",
+            "args": ""
+        }
+    ]
+}
